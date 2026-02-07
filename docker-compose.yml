@@ -1,0 +1,42 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+      - NASA_API_KEY=${NASA_API_KEY:-KXRwExHnLSAu5xiX5IjsolZmuQtwWLo4FhZIPvOc}
+      - API_KEY=${API_KEY:-placeholder_api_key}
+      # Database placeholders
+      - DB_HOST=${DB_HOST:-db}
+      - DB_USER=${DB_USER:-admin}
+      - DB_PASSWORD=${DB_PASSWORD:-cosmic_secret_pass}
+      - DB_NAME=${DB_NAME:-cosmic_watch_db}
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=http://backend:4000/api
+    restart: unless-stopped
+
+# Optional Database service
+#  db:
+#    image: postgres:15-alpine
+#    environment:
+#      - POSTGRES_USER=${DB_USER:-admin}
+#      - POSTGRES_PASSWORD=${DB_PASSWORD:-cosmic_secret_pass}
+#      - POSTGRES_DB=${DB_NAME:-cosmic_watch_db}
+#    volumes:
+#      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

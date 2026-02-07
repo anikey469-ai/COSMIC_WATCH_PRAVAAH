@@ -1,0 +1,7 @@
+{
+  "name": "Cosmic Watch - NEO Monitoring",
+  "description": "A sophisticated Near-Earth Object monitoring platform using NASA NeoWs API with 3D orbit visualization, risk analysis scoring, and real-time cosmic chat.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
