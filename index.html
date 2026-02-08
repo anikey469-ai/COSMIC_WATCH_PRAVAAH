@@ -16,7 +16,7 @@
             background-color: #020617;
             color: #f8fafc;
             margin: 0;
-            overflow-x: hidden; /* Allow vertical scroll, block horizontal */
+            overflow-x: hidden; 
             min-height: 100vh;
         }
         
@@ -31,8 +31,6 @@
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
-
-        /* THE MASTER BACKGROUND SYSTEM */
         .cosmic-background-system {
             position: fixed;
             top: 0;
@@ -66,8 +64,6 @@
             from { transform: translate(-50%, -50%) rotate(0deg); }
             to { transform: translate(-50%, -50%) rotate(360deg); }
         }
-
-        /* LOGIN PORTAL SPECIAL ANIMATIONS */
         @keyframes border-spin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -105,8 +101,6 @@
             border-radius: 2.45rem;
             backdrop-filter: blur(30px);
         }
-
-        /* CUSTOM NEON SCROLLBAR */
         .custom-scrollbar::-webkit-scrollbar {
             width: 8px;
         }
